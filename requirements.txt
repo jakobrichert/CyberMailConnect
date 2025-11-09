@@ -1,0 +1,15 @@
+# CyberMailConnect Requirements
+# Python 3.8+
+
+# DNS resolution for SPF/DKIM/DMARC validation
+dnspython>=2.2.0
+
+# YAML configuration support
+PyYAML>=6.0
+
+# Enhanced logging
+colorlog>=6.7.0
+
+# Optional: Advanced features
+# requests>=2.28.0  # For API integrations
+# cryptography>=38.0  # For additional crypto operations
