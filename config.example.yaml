@@ -1,0 +1,92 @@
+# CyberMailConnect Configuration Example
+# Copy this to config.yaml and modify for your needs
+
+target:
+  # Target mail server
+  host: mail.example.com
+
+  # Ports to scan (common mail ports)
+  # SMTP: 25, 465, 587, 2525
+  # IMAP: 143, 993
+  # POP3: 110, 995
+  ports:
+    - 25
+    - 465
+    - 587
+    - 993
+    - 995
+
+security:
+  # Validate SSL/TLS certificates
+  validate_certificates: true
+
+  # Minimum TLS version (TLSv1_2 or TLSv1_3)
+  min_tls_version: "TLSv1_2"
+
+  # Connection timeout (seconds)
+  timeout: 30
+
+  # Verify certificate hostname
+  verify_hostname: true
+
+scanning:
+  # Maximum concurrent threads
+  max_threads: 5
+
+  # Rate limiting (requests per second)
+  rate_limit: 10
+
+  # Scan modules to enable
+  modules:
+    - connection_test
+    - tls_analysis
+    - certificate_check
+    - auth_methods
+    - header_analysis
+    - spf_validation
+    - dkim_validation
+    - dmarc_validation
+
+authentication:
+  # Test authentication (for authorized testing only)
+  enabled: false
+  username: ""
+  password: ""
+
+  # OAuth2 token (if using OAuth)
+  oauth_token: ""
+
+logging:
+  # Logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+  level: INFO
+
+  # Output file for scan results
+  output: scan_results.log
+
+  # Console output
+  console: true
+
+  # Colored output
+  colorize: true
+
+reporting:
+  # Generate detailed report
+  detailed: true
+
+  # Report format (text, json, html)
+  format: text
+
+  # Save report to file
+  save_to_file: true
+  output_file: security_report.txt
+
+# Email header analysis
+header_analysis:
+  # Check for spoofing indicators
+  check_spoofing: true
+
+  # Trace email path
+  trace_path: true
+
+  # Analyze authentication results
+  check_auth_results: true
